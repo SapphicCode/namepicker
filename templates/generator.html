@@ -1,0 +1,34 @@
+<h1>Name generator</h1>
+<form action="names" method="GET">
+  <div>
+    <label for="year">Pick a year:</label>
+    <input list="years" id="year" name="year" value="2019" />
+    <datalist id="years">
+      {{range $year := .Years}}
+      <option value="{{$year}}"></option>
+      {{end}}
+    </datalist>
+  </div>
+  <div>
+    <label for="n">How many names would you like?</label>
+    <input id="n" name="n" type="number" min="1" max="1000" value="10" />
+  </div>
+  <div>
+    <label for="limit">Optionally, selected from the top how many names?</label>
+    <input id="limit" name="limit" type="number" min="0" />
+  </div>
+  <div>
+    <label>Optionally, pick a gender:</label>
+  </div>
+  <div>
+    <input type="radio" id="genderF" name="gender" value="F" />
+    <label for="genderF" style="display: inline">Female</label> <br />
+    <input type="radio" id="genderM" name="gender" value="M" />
+    <label for="genderM" style="display: inline">Male</label> <br />
+    <input type="radio" id="genderX" name="gender" value="" checked />
+    <label for="genderX" style="display: inline">Gender is a lie</label>
+  </div>
+  <div>
+    <button type="submit">Generate!</button>
+  </div>
+</form>
